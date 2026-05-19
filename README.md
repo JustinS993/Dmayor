@@ -1,22 +1,38 @@
 # TRL — Sitio estático organizado
 
-Estructura creada para mantener el contenido ordenado:
+Este proyecto es una guía práctica sobre los niveles de madurez tecnológica (TRL), con contenido estructurado y un sitio que funciona directamente desde el archivo.
+
+## Estructura del proyecto
 
 - `site/` — Archivos principales del sitio.
-  - `index.html` — Punto de entrada que contiene todas las secciones integradas.
-  - `css/styles.css` — Estilos del sitio.
-  - `sections/` — Fragmentos HTML por sección (archivos opcionales que ya no se cargan por fetch).
+  - `index.html` — Página principal con todo el contenido integrado y navegación por secciones.
+  - `css/styles.css` — Estilos responsivos y mejorados.
+  - `sections/` — Fragmentos HTML por sección (archivos opcionales que ya no se cargan por `fetch`).
+- `README.md` — Documentación del proyecto.
+- `package.json` — Script opcional para servir con Node.js si se desea.
 
-Cómo abrir:
+## Cómo abrir
 
 1. Abre `site/index.html` en tu navegador (doble clic o `Abrir con`).
-2. Navega usando los enlaces de la cabecera; las secciones se muestran sin necesidad de servidor.
+2. Usa la navegación superior para moverte entre secciones.
+3. El sitio funciona sin servidor local y sin recarga de página.
 
-Notas de accesibilidad y mejoras realizadas:
-- Se añadió un enlace "Saltar al contenido" (`skip-link`) visible al recibir foco para navegación con teclado.
-- La navegación usa enlaces con fragmentos (`#01-resumen`, etc.) para permitir enlaces directos y soportar historial (back/forward).
-- Todas las secciones están incrustadas en `index.html` y se muestran/ocultan sin `fetch`.
-- Se añadió soporte para activar el enlace actual en la cabecera.
+## Mejora del sitio
 
-No se requiere servidor local; el contenido funciona directamente desde el archivo.
+- Navegación visible y sticky en el encabezado.
+- Secciones integradas e indexadas con fragmentos (`#01-resumen`, `#02-definicion`, etc.).
+- Navegación interna `Anterior / Siguiente` para avanzar fácilmente entre temas.
+- Mejora visual en la cabecera, botones y tabla de niveles.
+- Aviso `noscript` para usuarios sin JavaScript.
+- Uso de `aria-hidden` y `section-hidden` para ocultar y mostrar secciones de forma accesible.
+- Activación de enlace actual en el menú para indicar la sección seleccionada.
+
+## Notas importantes
+
+- No se necesita servidor local: el sitio está pensado para abrirse directamente desde el archivo.
+- Los archivos dentro de `site/sections/` pueden mantenerse como referencia o eliminarse si prefieres una versión más limpia.
+
+## Opcional
+
+Si quieres mantener un servidor para pruebas, puedes usar `npm run serve` si tienes Node.js y `http-server` disponible, pero no es obligatorio.
 
