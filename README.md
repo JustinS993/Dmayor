@@ -14,6 +14,10 @@ Guía práctica sobre los niveles de madurez tecnológica (TRL), construida como
 - Sitio estático que funciona con `file://` sin necesidad de servidor.
 - Navegación superior sticky con enlaces a cada sección.
 - Mini pager `Anterior / Siguiente` para avanzar entre temas.
+- Estética y diseño:
+  - estilo moderno con gradientes suaves y bordes redondeados.
+  - paleta contrastada para mejorar legibilidad.
+  - disposición clara y jerarquía visual en cada sección.
 - Accesibilidad mejorada:
   - enlace de salto `Saltar al contenido`
   - foco visible y teclado soportado
