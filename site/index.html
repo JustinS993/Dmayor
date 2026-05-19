@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Guía sobre los Technology Readiness Levels (TRL): definición, niveles, evaluación y buenas prácticas." />
+  <meta name="theme-color" content="#0b63d6" />
+  <title>TRL — Guía</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Saltar al contenido</a>
+  <header class="site-header">
+    <h1>Guía sobre TRL</h1>
+    <p class="lead">Navega por las secciones para ver la explicación detallada.</p>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#01-resumen">Resumen</a>
+      <a href="#02-definicion">Definición</a>
+      <a href="#03-niveles">Niveles</a>
+      <a href="#04-evaluacion">Evaluación</a>
+      <a href="#05-ventajas-limitaciones">Ventajas / Limitaciones</a>
+      <a href="#06-buenas-practicas">Buenas prácticas</a>
+      <a href="#07-recursos">Recursos</a>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="0">
+    <section id="01-resumen" class="content-section">
+      <h2>Resumen</h2>
+      <p>El <strong>TRL</strong> (Technology Readiness Level) es una escala utilizada para evaluar el grado de madurez de una tecnología en desarrollo. Se emplea a nivel industrial, académico y gubernamental para tomar decisiones sobre inversión, planificación de proyectos y gestión del riesgo técnico.</p>
+    </section>
+
+    <section id="02-definicion" class="content-section section-hidden">
+      <h2>Definición y propósito</h2>
+      <p>El TRL es una escala numérica (normalmente de 1 a 9) que describe el progreso desde la observación de principios básicos hasta la implementación y operación a escala comercial. Su propósito principal es ofrecer un marco común para comparar tecnologías, priorizar recursos y comunicar el estado técnico de un proyecto.</p>
+    </section>
+
+    <section id="03-niveles" class="content-section section-hidden">
+      <h2>Niveles del TRL</h2>
+      <p>Los niveles típicos del TRL son:</p>
+      <div class="table-wrap">
+        <table class="trl-table" aria-describedby="tabla-trl">
+          <thead>
+            <tr>
+              <th>TRL</th>
+              <th>Descripción</th>
+              <th>Ejemplo práctico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Principios básicos observados y reportados.</td>
+              <td>Publicación científica que identifica un efecto físico nuevo.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Concepto técnico formulado.</td>
+              <td>Modelo teórico o simulación inicial que muestra viabilidad.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Prueba de concepto experimental en laboratorio.</td>
+              <td>Prototipo de banco de pruebas en entorno controlado.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Validación de componente o subsistema en laboratorio.</td>
+              <td>Integración parcial y ensayos funcionales en laboratorio.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Validación de componente o subsistema en entorno relevante.</td>
+              <td>Ensayos en condiciones similares a las de operación real.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Demostración de sistema/subsistema en entorno relevante.</td>
+              <td>Prototipo en campo a pequeña escala, ensayo de integración.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Demostración de sistema en entorno operativo real.</td>
+              <td>Prototipo completo probado en condiciones de operación reales.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Sistema completado y certificado para su uso.</td>
+              <td>Producto final listo para producción, pruebas de aceptación.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Sistema probado con éxito en misión operativa real.</td>
+              <td>Despliegue comercial o misión operativa completada con éxito.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="04-evaluacion" class="content-section section-hidden">
+      <h2>Cómo se evalúa el TRL</h2>
+      <ul>
+        <li>Revisión de evidencia técnica: publicaciones, informes de ensayo y resultados experimentales.</li>
+        <li>Demostraciones y prototipos: tamaño, repetibilidad y entornos de prueba.</li>
+        <li>Evaluaciones de integración: compatibilidad con sistemas existentes y requisitos de interfaz.</li>
+        <li>Documentación y procedimientos: planes de prueba, criterios de aceptación y certificaciones.</li>
+      </ul>
+    </section>
+
+    <section id="05-ventajas-limitaciones" class="content-section section-hidden">
+      <h2>Ventajas y limitaciones</h2>
+      <h3>Ventajas</h3>
+      <ul>
+        <li>Marco común para comunicar madurez tecnológica.</li>
+        <li>Ayuda a priorizar inversiones y gestionar riesgos.</li>
+        <li>Facilita la comparación entre proyectos y tecnologías.</li>
+      </ul>
+      <h3>Limitaciones</h3>
+      <ul>
+        <li>Puede simplificar en exceso la complejidad técnica y comercial.</li>
+        <li>Dos evaluadores pueden asignar diferentes TRL por criterios distintos.</li>
+        <li>No refleja directamente aspectos de mercado, coste o viabilidad financiera.</li>
+      </ul>
+    </section>
+
+    <section id="06-buenas-practicas" class="content-section section-hidden">
+      <h2>Buenas prácticas y recomendaciones</h2>
+      <ol>
+        <li>Definir criterios claros por nivel antes de evaluar.</li>
+        <li>Registrar la evidencia (informes, datos de ensayo, resultados) para cada nivel.</li>
+        <li>Usar TRL junto a otras métricas (TRL comercial, MRL, coste, tiempo).</li>
+        <li>Revisar el TRL periódicamente conforme avanza el proyecto.</li>
+      </ol>
+    </section>
+
+    <section id="07-recursos" class="content-section section-hidden">
+      <h2>Recursos y referencias</h2>
+      <p>Para mayor detalle consulte documentos de organismos como la <em>Agencia Espacial Europea (ESA)</em>, la <em>NASA</em> o guías de financiación pública que especifican criterios formales para cada TRL.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Creado con fines informativos.</p>
+  </footer>
+
+  <script>
+    function setActiveNav(hash) {
+      document.querySelectorAll('.main-nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === hash);
+      });
+    }
+
+    function showSection(id) {
+      document.querySelectorAll('.content-section').forEach(section => {
+        const isActive = section.id === id;
+        section.classList.toggle('section-hidden', !isActive);
+        section.setAttribute('aria-hidden', !isActive);
+      });
+      const activeSection = document.getElementById(id);
+      if (activeSection) {
+        activeSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', ev => {
+          ev.preventDefault();
+          const targetId = link.getAttribute('href').replace('#', '');
+          showSection(targetId);
+          setActiveNav(link.getAttribute('href'));
+          history.replaceState(null, '', `#${targetId}`);
+        });
+      });
+
+      const initialHash = location.hash || '#01-resumen';
+      const initialId = initialHash.replace('#', '');
+      showSection(initialId);
+      setActiveNav(initialHash);
+    });
+  </script>
+</body>
+</html>

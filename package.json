@@ -1,0 +1,8 @@
+{
+  "name": "trl-site",
+  "version": "1.0.0",
+  "description": "Sitio estático con guía sobre TRL",
+  "scripts": {
+    "serve": "npx http-server ./site -p 8000"
+  }
+}

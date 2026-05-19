@@ -1,0 +1,122 @@
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #556075;
+  --accent: #0b63d6;
+  --accent-2: #0f4fa8;
+  --text: #0f2633;
+  --radius: 12px;
+  --max-width: 980px;
+  --gap: 1rem;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+}
+
+.site-header{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  padding:1.6rem 1rem;
+  text-align:center;
+}
+.site-header h1{margin:0;font-size:1.5rem}
+.lead{opacity:0.95;margin-top:.35rem}
+
+.main-nav{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.main-nav a{
+  display:inline-block;
+  text-decoration:none;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.06);
+  color:white;
+  padding:.5rem .75rem;
+  border-radius:8px;
+  transition:transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+.main-nav a:hover{transform:translateY(-2px);background:rgba(255,255,255,0.14);box-shadow:0 6px 14px rgba(11,99,214,0.08)}
+.main-nav a:focus{outline:3px solid rgba(255,255,255,0.16);outline-offset:2px}
+.main-nav a.active{background:white;color:var(--accent);box-shadow:0 6px 18px rgba(11,99,214,0.12);font-weight:600}
+
+main{
+  max-width:var(--max-width);
+  margin:var(--gap) auto;
+  padding:0 1rem 2rem;
+}
+.section-hidden{display:none}
+
+section{
+  background:var(--card);
+  padding:1.1rem 1.25rem;
+  margin:0 0 1rem;
+  border-radius:var(--radius);
+  box-shadow:0 8px 22px rgba(16,32,40,0.06);
+}
+section h2{margin-top:0;color:var(--accent)}
+
+.trl-table{width:100%;border-collapse:collapse;margin-top:.6rem}
+.trl-table th,.trl-table td{padding:.65rem .85rem;border:1px solid #e6eef8;text-align:left;vertical-align:top}
+.trl-table thead th{background:#f3f8ff;color:var(--accent);font-weight:700}
+.trl-table tbody tr:nth-child(even){background:#fbfdff}
+
+/* Make tables horizontally scrollable on small screens */
+.table-wrap{overflow-x:auto}
+.table-wrap .trl-table{min-width:640px}
+
+ul,ol{margin:0.6rem 0 0.25rem 1.2rem}
+
+.site-footer{max-width:var(--max-width);margin:0 auto 2rem;padding:.9rem 1rem;text-align:center;color:var(--muted);font-size:.95rem}
+
+/* Skip link */
+.skip-link{
+  position:absolute;
+  left:0;
+  top:-40px;
+  background:#003b82;
+  color:white;
+  padding:.5rem .75rem;
+  z-index:1000;
+  transition:top .15s ease;
+}
+.skip-link:focus{top:8px}
+
+/* Visually hidden utility for aria-live */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Utility: accented callout */
+.callout{border-left:4px solid var(--accent);padding:.6rem .9rem;background:linear-gradient(180deg, rgba(11,99,214,0.04), rgba(11,99,214,0.02));border-radius:8px}
+
+/* Error box used when fetch fails or file:// protocol detected */
+.error-box{border:1px solid #ffd2d2;background:#fff4f4;padding:1rem;border-radius:8px;color:#521212}
+.error-box pre{background:#fff0f0;padding:.6rem;border-radius:6px;overflow:auto}
+
+/* Responsive adjustments */
+@media (max-width:720px){
+  .site-header h1{font-size:1.25rem}
+  .main-nav{gap:.35rem}
+  .main-nav button{padding:.45rem .55rem;font-size:.95rem}
+  .trl-table th,.trl-table td{font-size:.95rem;padding:.5rem}
+}
+
+/* Dark mode */
+@media (prefers-color-scheme:dark){
+  :root{--bg:#061124;--card:#071827;--muted:#99a6b6;--text:#e6f2ff}
+  body{color:var(--text)}
+  .site-header{background:linear-gradient(90deg,#1e6fe7,#0f4f8a)}
+  .trl-table thead th{background:#07213a}
+  .trl-table tbody tr:nth-child(even){background:transparent}
+}
+
+@media print{
+  body{background:white;color:black}
+  .site-header{background:#ddd;color:black}
+  section{box-shadow:none;border:1px solid #ccc}
+}
