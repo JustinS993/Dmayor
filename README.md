@@ -1,40 +1,72 @@
 # TRL — Sitio estático organizado
 
-Este proyecto es una guía práctica sobre los niveles de madurez tecnológica (TRL), con contenido estructurado y un sitio que funciona directamente desde el archivo.
+Guía práctica sobre los niveles de madurez tecnológica (TRL), construida como un sitio estático fácil de usar y accesible. El contenido está integrado en una sola página y funciona directamente desde el archivo sin necesidad de servidor.
+
+## Qué incluye
+
+- `site/index.html` — Página principal con toda la guía de TRL y navegación por secciones.
+- `site/css/styles.css` — Estilos responsive, enfoque accesible y diseño visual moderno.
+- `site/sections/` — Fragmentos HTML por sección, almacenados como referencia.
+- `package.json` — Script opcional para servir el sitio con Node.js.
+
+## Características principales
+
+- Sitio estático que funciona con `file://` sin necesidad de servidor.
+- Navegación superior sticky con enlaces a cada sección.
+- Mini pager `Anterior / Siguiente` para avanzar entre temas.
+- Accesibilidad mejorada:
+  - enlace de salto `Saltar al contenido`
+  - foco visible y teclado soportado
+  - `aria-live` para anunciar la sección activa
+  - `aria-current` en el menú activo
+  - soporte `noscript` para usuarios sin JavaScript
+- Diseño responsive con tablas horizontales en pantallas pequeñas.
+
+## Cómo usar
+
+### Abrir el sitio sin servidor
+
+1. Navega a `site/`.
+2. Abre `index.html` con tu navegador.
+3. Usa la navegación superior o los botones `Anterior / Siguiente`.
+
+### Usar un servidor local (opcional)
+
+Si quieres un servidor HTTP para pruebas, usa Node.js y ejecuta:
+
+```bash
+npm install
+npm run serve
+```
+
+Luego abre `http://localhost:8000` en tu navegador.
+
+## Accesibilidad y experiencia
+
+- El sitio muestra todo el contenido cuando JavaScript está desactivado.
+- Las secciones ocultan/mostrarán contenido usando `aria-hidden` de forma correcta.
+- El contenido principal está marcado como `role="main"`.
+- Las secciones en pantalla cambian el foco automáticamente para facilitar la navegación con teclado.
+- Los enlaces de navegación reciben `aria-current="page"` cuando están activos.
 
 ## Estructura del proyecto
 
-- `site/` — Archivos principales del sitio.
-  - `index.html` — Página principal con todo el contenido integrado y navegación por secciones.
-  - `css/styles.css` — Estilos responsivos y mejorados.
-  - `sections/` — Fragmentos HTML por sección (archivos opcionales que ya no se cargan por `fetch`).
-- `README.md` — Documentación del proyecto.
-- `package.json` — Script opcional para servir con Node.js si se desea.
+- `site/`
+  - `index.html` — contenido completo del sitio.
+  - `css/styles.css` — estilos globales y responsive.
+  - `sections/` — secciones independientes usadas originalmente como fragmentos.
+- `README.md` — documentación del repositorio.
+- `package.json` — configuración de script opcional.
 
-## Cómo abrir
+## Contribuir
 
-1. Abre `site/index.html` en tu navegador (doble clic o `Abrir con`).
-2. Usa la navegación superior para moverte entre secciones.
-3. El sitio funciona sin servidor local y sin recarga de página.
+1. Haz un fork del proyecto.
+2. Crea una rama con tu cambio: `git checkout -b mejora-docs`.
+3. Realiza tus cambios y prueba la apertura de `site/index.html`.
+4. Envía un pull request describiendo la mejora.
 
-## Mejora del sitio
+## Notas
 
-- Navegación visible y sticky en el encabezado.
-- Secciones integradas e indexadas con fragmentos (`#01-resumen`, `#02-definicion`, etc.).
-- Navegación interna `Anterior / Siguiente` para avanzar fácilmente entre temas.
-- Mejora visual en la cabecera, botones y tabla de niveles.
-- Soporte accesible sin JavaScript: el contenido se muestra completo cuando JS está desactivado.
-- Indicadores `aria-current`, `aria-live` y foco visible para una mejor experiencia con lectores de pantalla y teclado.
-- Aviso `noscript` para usuarios sin JavaScript.
-- Uso de `aria-hidden` y `section-hidden` para ocultar y mostrar secciones de forma accesible.
-- Activación de enlace actual en el menú para indicar la sección seleccionada.
-
-## Notas importantes
-
-- No se necesita servidor local: el sitio está pensado para abrirse directamente desde el archivo.
-- Los archivos dentro de `site/sections/` pueden mantenerse como referencia o eliminarse si prefieres una versión más limpia.
-
-## Opcional
-
-Si quieres mantener un servidor para pruebas, puedes usar `npm run serve` si tienes Node.js y `http-server` disponible, pero no es obligatorio.
+- Los archivos dentro de `site/sections/` son opcionales y pueden conservarse como referencia.
+- Este proyecto está pensado para ser ligero y fácil de compartir en repositorios estáticos como GitHub Pages.
 
