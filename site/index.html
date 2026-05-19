@@ -9,10 +9,18 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <noscript>
+    <div class="noscript-warning">
+      Este sitio requiere JavaScript para mostrar el contenido por secciones. Activa JavaScript en tu navegador para una mejor experiencia.
+    </div>
+  </noscript>
   <a class="skip-link" href="#content">Saltar al contenido</a>
   <header class="site-header">
-    <h1>Guía sobre TRL</h1>
-    <p class="lead">Navega por las secciones para ver la explicación detallada.</p>
+    <div class="hero-copy">
+      <p class="eyebrow">Guía práctica</p>
+      <h1>Guía sobre TRL</h1>
+      <p class="lead">Aprende qué es el <strong>Technology Readiness Level</strong> y cómo usarlo para medir la madurez de una tecnología.</p>
+    </div>
     <nav class="main-nav" aria-label="Navegación principal">
       <a href="#01-resumen">Resumen</a>
       <a href="#02-definicion">Definición</a>
@@ -187,6 +195,8 @@
     </section>
   </main>
 
+  <div class="section-actions" aria-label="Navegación de sección"></div>
+
   <footer class="site-footer">
     <p>Creado con fines informativos.</p>
   </footer>
@@ -199,6 +209,11 @@
     }
 
     function showSection(id) {
+      if (!sectionIds.includes(id)) {
+        id = sectionIds[0];
+        history.replaceState(null, '', `#${id}`);
+      }
+
       document.querySelectorAll('.content-section').forEach(section => {
         const isActive = section.id === id;
         section.classList.toggle('section-hidden', !isActive);
@@ -210,21 +225,42 @@
       }
     }
 
+    const sectionIds = Array.from(document.querySelectorAll('.content-section')).map(section => section.id);
+    const pager = document.querySelector('.section-actions');
+
+    function renderPager(currentId) {
+      const index = sectionIds.indexOf(currentId);
+      const prevId = sectionIds[index - 1];
+      const nextId = sectionIds[index + 1];
+      const links = [];
+
+      if (prevId) {
+        links.push(`<a class="button prev" href="#${prevId}">Anterior</a>`);
+      }
+      if (nextId) {
+        links.push(`<a class="button next" href="#${nextId}">Siguiente</a>`);
+      }
+
+      pager.innerHTML = links.join('');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', ev => {
-          ev.preventDefault();
-          const targetId = link.getAttribute('href').replace('#', '');
-          showSection(targetId);
-          setActiveNav(link.getAttribute('href'));
-          history.replaceState(null, '', `#${targetId}`);
-        });
+      document.body.addEventListener('click', ev => {
+        const link = ev.target.closest('.main-nav a, .section-actions a');
+        if (!link) return;
+        ev.preventDefault();
+        const targetId = link.getAttribute('href').replace('#', '');
+        showSection(targetId);
+        setActiveNav(`#${targetId}`);
+        renderPager(targetId);
+        history.replaceState(null, '', `#${targetId}`);
       });
 
       const initialHash = location.hash || '#01-resumen';
       const initialId = initialHash.replace('#', '');
       showSection(initialId);
       setActiveNav(initialHash);
+      renderPager(initialId);
     });
   </script>
 </body>
