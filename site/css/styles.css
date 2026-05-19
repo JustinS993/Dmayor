@@ -51,6 +51,11 @@ body{
   transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
 }
 .main-nav a:hover{transform:translateY(-1px);background:rgba(255,255,255,0.22);box-shadow:0 10px 30px rgba(11,99,214,0.12)}
+.main-nav a:focus-visible,
+.section-actions .button:focus-visible,
+.skip-link:focus-visible,
+.content-section:focus-visible{
+}
 .main-nav a:focus{outline:3px solid rgba(255,255,255,0.2);outline-offset:2px}
 .main-nav a.active{background:white;color:var(--accent);box-shadow:0 10px 30px rgba(11,99,214,0.18);font-weight:700}
 
@@ -60,6 +65,7 @@ main{
   padding:1.5rem 1rem 2rem;
 }
 .section-hidden{display:none}
+.no-js .section-hidden{display:block}
 
 section{
   background:var(--card);

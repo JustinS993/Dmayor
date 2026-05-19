@@ -8,13 +8,14 @@
   <title>TRL — Guía</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="no-js">
   <noscript>
     <div class="noscript-warning">
       Este sitio requiere JavaScript para mostrar el contenido por secciones. Activa JavaScript en tu navegador para una mejor experiencia.
     </div>
   </noscript>
   <a class="skip-link" href="#content">Saltar al contenido</a>
+  <div id="section-announcement" class="visually-hidden" aria-live="polite" aria-atomic="true">Sección actual: Resumen</div>
   <header class="site-header">
     <div class="hero-copy">
       <p class="eyebrow">Guía práctica</p>
@@ -32,7 +33,7 @@
     </nav>
   </header>
 
-  <main id="content" tabindex="0">
+  <main id="content" role="main" aria-label="Contenido principal">
     <section id="01-resumen" class="content-section">
       <h2>Resumen</h2>
       <p>El <strong>TRL</strong> (Technology Readiness Level) es una escala que mide cuán madura está una tecnología antes de su implementación. Su uso facilita decisiones estratégicas, como financiamiento, desarrollo y adopción industrial.</p>
@@ -204,7 +205,13 @@
   <script>
     function setActiveNav(hash) {
       document.querySelectorAll('.main-nav a').forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === hash);
+        const isActive = a.getAttribute('href') === hash;
+        a.classList.toggle('active', isActive);
+        if (isActive) {
+          a.setAttribute('aria-current', 'page');
+        } else {
+          a.removeAttribute('aria-current');
+        }
       });
     }
 
@@ -221,12 +228,21 @@
       });
       const activeSection = document.getElementById(id);
       if (activeSection) {
+        activeSection.tabIndex = -1;
+        activeSection.focus();
         activeSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+        announcement.textContent = `Sección actual: ${activeSection.querySelector('h2')?.textContent || ''}`;
       }
     }
 
+    const announcement = document.getElementById('section-announcement');
     const sectionIds = Array.from(document.querySelectorAll('.content-section')).map(section => section.id);
     const pager = document.querySelector('.section-actions');
+
+    function getSectionTitle(id) {
+      const section = document.getElementById(id);
+      return section?.querySelector('h2')?.textContent || '';
+    }
 
     function renderPager(currentId) {
       const index = sectionIds.indexOf(currentId);
@@ -235,16 +251,21 @@
       const links = [];
 
       if (prevId) {
-        links.push(`<a class="button prev" href="#${prevId}">Anterior</a>`);
+        links.push(`<a class="button prev" href="#${prevId}" aria-label="Ir a la sección anterior: ${getSectionTitle(prevId)}">Anterior</a>`);
       }
       if (nextId) {
-        links.push(`<a class="button next" href="#${nextId}">Siguiente</a>`);
+        links.push(`<a class="button next" href="#${nextId}" aria-label="Ir a la sección siguiente: ${getSectionTitle(nextId)}">Siguiente</a>`);
       }
 
       pager.innerHTML = links.join('');
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('no-js');
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.tabIndex = -1;
+      });
+
       document.body.addEventListener('click', ev => {
         const link = ev.target.closest('.main-nav a, .section-actions a');
         if (!link) return;
@@ -259,7 +280,7 @@
       const initialHash = location.hash || '#01-resumen';
       const initialId = initialHash.replace('#', '');
       showSection(initialId);
-      setActiveNav(initialHash);
+      setActiveNav(`#${initialId}`);
       renderPager(initialId);
     });
   </script>

@@ -23,6 +23,8 @@ Este proyecto es una guía práctica sobre los niveles de madurez tecnológica (
 - Secciones integradas e indexadas con fragmentos (`#01-resumen`, `#02-definicion`, etc.).
 - Navegación interna `Anterior / Siguiente` para avanzar fácilmente entre temas.
 - Mejora visual en la cabecera, botones y tabla de niveles.
+- Soporte accesible sin JavaScript: el contenido se muestra completo cuando JS está desactivado.
+- Indicadores `aria-current`, `aria-live` y foco visible para una mejor experiencia con lectores de pantalla y teclado.
 - Aviso `noscript` para usuarios sin JavaScript.
 - Uso de `aria-hidden` y `section-hidden` para ocultar y mostrar secciones de forma accesible.
 - Activación de enlace actual en el menú para indicar la sección seleccionada.
