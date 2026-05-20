@@ -60,8 +60,7 @@ Luego abre `http://localhost:8000`.
 - **Accesibilidad (a11y)**: prácticas que hacen el sitio usable para personas con discapacidades o que navegan con teclado o lectores de pantalla.
 - **ARIA**: atributos especiales (`aria-live`, `aria-hidden`, `aria-current`) que ayudan a las tecnologías asistivas a entender mejor la página.
 - **Sticky**: un elemento que se queda fijo en la pantalla mientras se hace scroll.
-- **Fragmento de URL**: la parte que va después del símbolo `#`, por ejemplo `#03-niveles`; permite saltar a una sección específica.
-
+- **Fragmento de URL**: la parte que va después del símbolo `#`, por ejemplo `#03-niveles`; permite saltar a una sección específica.- `prefers-reduced-motion`: una preferencia del usuario que indica que desea menos animaciones o movimientos.
 ## SEO y metadatos
 
 El proyecto incluye etiquetas de metadatos en `site/index.html` para mejorar cómo se presenta la página al compartirse o indexarse:
