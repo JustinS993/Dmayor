@@ -1,20 +1,24 @@
-# TRL — Guía paso a paso para un sitio estático accesible
+# TRL — Guía paso a paso para sitios estático y dinámico
 
-Este repositorio contiene una guía práctica sobre los niveles de madurez tecnológica (TRL) presentada como un sitio estático. El objetivo es ofrecer una experiencia clara, rápida y accesible, con contenido integrado en una sola página y navegación intuitiva.
+Este repositorio contiene dos versiones de la misma guía TRL:
 
-## Qué hace este sitio
+- `site/` — versión estática, que funciona directamente desde el archivo.
+- `dynamic/` — versión dinámica, que carga cada sección desde un servidor.
 
-Este proyecto construye una pequeña aplicación de contenido que:
+El objetivo es comparar estas dos arquitecturas mientras se ofrece una experiencia clara, moderna y accesible.
 
-- muestra la guía TRL en una sola página HTML (`site/index.html`),
-- agrega navegación por secciones usando enlaces ancla limpios como `#resumen`, `#definicion`, etc.,
-- permite avanzar con botones `Anterior` y `Siguiente`,
-- mantiene el contenido accesible incluso si JavaScript está desactivado,
-- utiliza estilos modernos para lograr una apariencia limpia y legible.
+## Qué hace este proyecto
+
+Este proyecto construye dos variantes de la guía TRL:
+
+- versión estática con `site/index.html` que muestra todo el contenido integrado en una sola página y usa navegación por fragmentos.
+- versión dinámica con `dynamic/index.html` que obtiene el contenido de cada sección desde el servidor usando JavaScript y rutas de API.
+- en la versión estática, el contenido está pre-renderizado y puede abrirse con `file://`.
+- en la versión dinámica, el contenido se descarga bajo demanda, lo que simula una aplicación web más moderna.
 
 ## Paso a paso: cómo usar el sitio
 
-### 1. Abrir el sitio sin servidor
+### 1. Abrir la versión estática sin servidor
 
 1. Ve a la carpeta `site/`.
 2. Abre el archivo `index.html` en tu navegador.
@@ -22,9 +26,18 @@ Este proyecto construye una pequeña aplicación de contenido que:
 4. Haz clic en cualquiera de los enlaces del menú superior para ir a esa sección.
 5. Usa los botones `Anterior` y `Siguiente` para recorrer el contenido de forma lineal.
 
-> Este sitio está diseñado para funcionar con la ruta `file://`, por lo que no requiere servidor web para visualizarlo.
+> La versión estática está diseñada para funcionar con la ruta `file://`, por lo que no requiere servidor web.
 
-### 2. Navegación interna
+### 2. Usar la versión dinámica
+
+1. Abre el terminal en la raíz del proyecto.
+2. Ejecuta `npm run serve:dynamic`.
+3. Abre `http://localhost:3000` en tu navegador.
+4. La versión dinámica carga cada sección desde el servidor usando la ruta `/api/sections/<slug>`.
+
+> La versión dinámica requiere JavaScript porque carga el contenido bajo demanda desde el servidor.
+
+### 3. Navegación interna
 
 - El menú superior es sticky, lo que significa que permanece visible mientras te desplazas.
 - Cada sección tiene un identificador único (`id`) que permite enlazar directamente a esa parte del contenido.
@@ -34,9 +47,8 @@ Este proyecto construye una pequeña aplicación de contenido que:
 
 Si el navegador no tiene JavaScript habilitado:
 
-- el contenido completo permanece visible,
-- el banner `noscript` muestra un aviso amigable,
-- la navegación sigue funcionando con enlaces normales, aunque sin el avance suave.
+- la versión estática (`site/index.html`) sigue funcionando con todo el contenido visible,
+- la versión dinámica muestra un aviso `noscript` y requiere JavaScript para cargar los fragmentos desde el servidor.
 
 ### 4. Servidor local opcional
 
@@ -85,22 +97,60 @@ Estos metadatos no cambian la apariencia del sitio, pero ayudan a que el conteni
   - utiliza `aria-live` para anunciar qué sección está activa.
 
 - `site/css/styles.css`
-  - da estilo al sitio con colores suaves y un diseño moderno.
+  - da estilo a la versión estática con colores suaves y un diseño moderno.
   - hace que los botones, tarjetas y tablas sean legibles y accesibles.
   - agrega soporte responsive y mejoras visuales.
   - mantiene el contraste apropiado para una lectura cómoda.
 
+- `dynamic/index.html`
+  - define la estructura de la página dinámica.
+  - carga el título y el contenedor que será rellenado por JavaScript.
+  - ofrece navegación acorde a la versión dinámica.
+
+- `dynamic/css/styles.css`
+  - da estilo a la versión dinámica y mantiene consistencia con el resto del proyecto.
+  - usa un diseño limpio y legible para el contenido cargado al vuelo.
+
+- `dynamic/js/app.js`
+  - solicita las secciones dinámicamente a través de la API.
+  - actualiza el contenido, el título de sección y la navegación activa.
+  - maneja errores de carga y actualiza la URL con fragmentos limpios.
+
+- `dynamic/server.js`
+  - servidor Node básico que entrega los archivos estáticos del sitio dinámico.
+  - responde a las peticiones `/api/sections/<slug>` con el HTML de cada sección.
+
 - `package.json`
-  - contiene un script opcional `serve` para ejecutar un servidor local con `http-server`.
+  - contiene scripts para iniciar la versión estática y la versión dinámica.
 
 ## Estructura del proyecto
 
 - `site/`
-  - `index.html` — la página principal con todo el contenido.
-  - `css/styles.css` — estilos del sitio.
-  - `sections/` — fragmentos HTML por sección, usados como referencia histórica.
+  - `index.html` — versión estática con todo el contenido integrado.
+  - `css/styles.css` — estilos para la versión estática.
+  - `sections/` — fragmentos por sección, usados por la versión estática.
+- `dynamic/`
+  - `index.html` — versión dinámica que carga secciones desde el servidor.
+  - `css/styles.css` — estilos dedicados para la versión dinámica.
+  - `js/app.js` — lógica que solicita secciones al servidor y actualiza el contenido.
+  - `server.js` — servidor Node que entrega la aplicación dinámica y sirve los fragmentos.
+  - `sections/` — archivos HTML de cada sección cargados dinámicamente.
 - `README.md` — documentación del proyecto.
-- `package.json` — configuración de scripts opcionales.
+- `package.json` — scripts de ejecución y configuración.
+
+## Diferencia entre página estática y dinámica
+
+- Página estática (`site/`):
+  - el contenido ya está escrito en el mismo HTML.
+  - funciona directamente desde el archivo con `file://`.
+  - no depende de un backend para mostrar el contenido.
+  - ideal para sitios simples, rápidos y fáciles de distribuir.
+
+- Página dinámica (`dynamic/`):
+  - la estructura de la página se carga primero y el contenido llega después desde el servidor.
+  - requiere JavaScript y un servidor para funcionar.
+  - permite cargar secciones bajo demanda y separar el contenido en archivos independientes.
+  - es más parecida a una aplicación web moderna y puede ser útil si el contenido cambia con frecuencia.
 
 ## Recomendaciones para usar este repositorio
 

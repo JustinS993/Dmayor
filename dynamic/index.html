@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Versión dinámica de la guía TRL que carga el contenido desde un servidor y muestra secciones bajo demanda." />
+  <meta name="keywords" content="TRL dinámico, Technology Readiness Level, sitio dinámico, contenido bajo demanda" />
+  <meta name="author" content="JustinS993" />
+  <title>TRL Dinámico — Guía</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="no-js">
+  <noscript>
+    <div class="noscript-warning">
+      Esta versión dinámica requiere JavaScript. Activa JavaScript para ver el contenido cargado desde el servidor.
+    </div>
+  </noscript>
+
+  <a class="skip-link" href="#dynamic-content">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="hero-copy">
+      <p class="eyebrow">Versión dinámica</p>
+      <h1>Guía TRL dinámica</h1>
+      <p class="lead">Carga el contenido por sección desde el servidor y muestra una experiencia similar a una aplicación web.</p>
+    </div>
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal dinámica">
+      <ul class="nav-list">
+        <li><a href="#resumen" data-slug="resumen">Resumen</a></li>
+        <li><a href="#definicion" data-slug="definicion">Definición</a></li>
+        <li><a href="#niveles" data-slug="niveles">Niveles</a></li>
+        <li><a href="#evaluacion" data-slug="evaluacion">Evaluación</a></li>
+        <li><a href="#ventajas-limitaciones" data-slug="ventajas-limitaciones">Ventajas / Limitaciones</a></li>
+        <li><a href="#buenas-practicas" data-slug="buenas-practicas">Buenas prácticas</a></li>
+        <li><a href="#recursos" data-slug="recursos">Recursos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="dynamic-content" role="main" aria-label="Contenido dinámico principal">
+    <section class="content-section">
+      <h2 id="section-title">Resumen</h2>
+      <div id="section-body" class="section-body"></div>
+    </section>
+  </main>
+
+  <div class="section-actions" aria-label="Navegación de sección"></div>
+
+  <footer class="site-footer">
+    <p>Versión dinámica cargada desde el servidor.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

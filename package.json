@@ -1,8 +1,9 @@
 {
   "name": "trl-site",
   "version": "1.0.0",
-  "description": "Sitio estático con guía sobre TRL",
+  "description": "Sitios TRL estático y dinámico para comparar ambas arquitecturas",
   "scripts": {
-    "serve": "npx http-server ./site -p 8000"
+    "serve": "npx http-server ./site -p 8000",
+    "serve:dynamic": "node dynamic/server.js"
   }
 }
