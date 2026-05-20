@@ -7,7 +7,7 @@ Este repositorio contiene una guía práctica sobre los niveles de madurez tecno
 Este proyecto construye una pequeña aplicación de contenido que:
 
 - muestra la guía TRL en una sola página HTML (`site/index.html`),
-- agrega navegación por secciones usando enlaces ancla (`#01-resumen`, `#02-definicion`, etc.),
+- agrega navegación por secciones usando enlaces ancla limpios como `#resumen`, `#definicion`, etc.,
 - permite avanzar con botones `Anterior` y `Siguiente`,
 - mantiene el contenido accesible incluso si JavaScript está desactivado,
 - utiliza estilos modernos para lograr una apariencia limpia y legible.
@@ -60,7 +60,9 @@ Luego abre `http://localhost:8000`.
 - **Accesibilidad (a11y)**: prácticas que hacen el sitio usable para personas con discapacidades o que navegan con teclado o lectores de pantalla.
 - **ARIA**: atributos especiales (`aria-live`, `aria-hidden`, `aria-current`) que ayudan a las tecnologías asistivas a entender mejor la página.
 - **Sticky**: un elemento que se queda fijo en la pantalla mientras se hace scroll.
-- **Fragmento de URL**: la parte que va después del símbolo `#`, por ejemplo `#03-niveles`; permite saltar a una sección específica.- `prefers-reduced-motion`: una preferencia del usuario que indica que desea menos animaciones o movimientos.
+- **Fragmento de URL**: la parte que va después del símbolo `#`, por ejemplo `#niveles`; permite saltar a una sección específica.
+- **prefers-reduced-motion**: una preferencia del usuario que indica que desea menos animaciones o movimientos.
+
 ## SEO y metadatos
 
 El proyecto incluye etiquetas de metadatos en `site/index.html` para mejorar cómo se presenta la página al compartirse o indexarse:

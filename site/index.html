@@ -10,6 +10,8 @@
   <meta property="og:title" content="Guía TRL — Technology Readiness Level" />
   <meta property="og:description" content="Aprende qué es el TRL, cómo se evalúa y cómo usarlo en proyectos tecnológicos." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://justins993.github.io/Dmayor/" />
+  <link rel="canonical" href="https://justins993.github.io/Dmayor/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guía TRL — Technology Readiness Level" />
   <meta name="twitter:description" content="Aprende qué es el TRL y cómo aplicarlo en una evaluación de madurez tecnológica." />
@@ -32,19 +34,19 @@
     </div>
     <nav class="main-nav" role="navigation" aria-label="Navegación principal">
       <ul class="nav-list">
-        <li><a href="#01-resumen" aria-controls="01-resumen">Resumen</a></li>
-        <li><a href="#02-definicion" aria-controls="02-definicion">Definición</a></li>
-        <li><a href="#03-niveles" aria-controls="03-niveles">Niveles</a></li>
-        <li><a href="#04-evaluacion" aria-controls="04-evaluacion">Evaluación</a></li>
-        <li><a href="#05-ventajas-limitaciones" aria-controls="05-ventajas-limitaciones">Ventajas / Limitaciones</a></li>
-        <li><a href="#06-buenas-practicas" aria-controls="06-buenas-practicas">Buenas prácticas</a></li>
-        <li><a href="#07-recursos" aria-controls="07-recursos">Recursos</a></li>
+        <li><a href="#resumen" aria-controls="resumen">Resumen</a></li>
+        <li><a href="#definicion" aria-controls="definicion">Definición</a></li>
+        <li><a href="#niveles" aria-controls="niveles">Niveles</a></li>
+        <li><a href="#evaluacion" aria-controls="evaluacion">Evaluación</a></li>
+        <li><a href="#ventajas-limitaciones" aria-controls="ventajas-limitaciones">Ventajas / Limitaciones</a></li>
+        <li><a href="#buenas-practicas" aria-controls="buenas-practicas">Buenas prácticas</a></li>
+        <li><a href="#recursos" aria-controls="recursos">Recursos</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="content" role="main" aria-label="Contenido principal">
-    <section id="01-resumen" class="content-section">
+    <section id="resumen" class="content-section">
       <h2>Resumen</h2>
       <p>El <strong>TRL</strong> (Technology Readiness Level) es una escala que mide cuán madura está una tecnología antes de su implementación. Su uso facilita decisiones estratégicas, como financiamiento, desarrollo y adopción industrial.</p>
       <h3>¿Qué cubre esta guía?</h3>
@@ -58,7 +60,7 @@
       <p>El TRL se utiliza en proyectos de innovación tecnológica, desarrollo de productos, carreras espaciales y programas de I+D, especialmente en instituciones que requieren una evaluación técnica sistemática.</p>
     </section>
 
-    <section id="02-definicion" class="content-section section-hidden">
+    <section id="definicion" class="content-section section-hidden">
       <h2>Definición y propósito</h2>
       <p>El TRL es una escala numérica de 1 a 9 que describe el avance técnico desde la idea inicial hasta el despliegue operativo.</p>
       <h3>Objetivo principal</h3>
@@ -72,7 +74,7 @@
       </ul>
     </section>
 
-    <section id="03-niveles" class="content-section section-hidden">
+    <section id="niveles" class="content-section section-hidden">
       <h2>Niveles del TRL</h2>
       <p>Los niveles del TRL permiten clasificar el estado de un proyecto en etapas concretas. Cada nivel requiere evidencia específica para avanzar al siguiente.</p>
       <div class="table-wrap">
@@ -137,7 +139,7 @@
       <p>TRL 1-3 definen la investigación y desarrollo inicial; TRL 4-6 cubren pruebas técnicas y prototipos; TRL 7-9 representan validación operativa y despliegue.</p>
     </section>
 
-    <section id="04-evaluacion" class="content-section section-hidden">
+    <section id="evaluacion" class="content-section section-hidden">
       <h2>Cómo se evalúa el TRL</h2>
       <p>La evaluación de TRL se basa en evidencia técnica y ensayos. El avance a cada nivel exige documentación clara y resultados verificables.</p>
       <h3>Criterios de evaluación</h3>
@@ -156,7 +158,7 @@
       </ol>
     </section>
 
-    <section id="05-ventajas-limitaciones" class="content-section section-hidden">
+    <section id="ventajas-limitaciones" class="content-section section-hidden">
       <h2>Ventajas y limitaciones</h2>
       <h3>Ventajas del TRL</h3>
       <ul>
@@ -172,7 +174,7 @@
       </ul>
     </section>
 
-    <section id="06-buenas-practicas" class="content-section section-hidden">
+    <section id="buenas-practicas" class="content-section section-hidden">
       <h2>Buenas prácticas y recomendaciones</h2>
       <h3>Consejos útiles</h3>
       <ul>
@@ -188,7 +190,7 @@
       </ul>
     </section>
 
-    <section id="07-recursos" class="content-section section-hidden">
+    <section id="recursos" class="content-section section-hidden">
       <h2>Recursos y referencias</h2>
       <p>Existen guías de TRL publicadas por agencias como la <em>NASA</em> y la <em>ESA</em>. También es útil consultar documentos de programas de innovación nacional y europea.</p>
       <h3>Lecturas recomendadas</h3>
@@ -287,7 +289,7 @@
         history.replaceState(null, '', `#${targetId}`);
       });
 
-      const initialHash = location.hash || '#01-resumen';
+      const initialHash = location.hash || '#resumen';
       const initialId = initialHash.replace('#', '');
       showSection(initialId);
       setActiveNav(`#${initialId}`);
