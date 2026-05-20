@@ -62,6 +62,18 @@ Luego abre `http://localhost:8000`.
 - **Sticky**: un elemento que se queda fijo en la pantalla mientras se hace scroll.
 - **Fragmento de URL**: la parte que va después del símbolo `#`, por ejemplo `#03-niveles`; permite saltar a una sección específica.
 
+## SEO y metadatos
+
+El proyecto incluye etiquetas de metadatos en `site/index.html` para mejorar cómo se presenta la página al compartirse o indexarse:
+
+- `meta description`: describe el contenido de la página para buscadores.
+- `meta keywords`: lista de palabras clave relacionadas con el contenido.
+- `meta author`: identifica al creador del contenido.
+- `og:title` y `og:description`: etiquetas Open Graph que optimizan cómo se muestra la página en redes sociales.
+- `twitter:card`, `twitter:title` y `twitter:description`: etiquetas de Twitter para mejorar el enlace compartido.
+
+Estos metadatos no cambian la apariencia del sitio, pero ayudan a que el contenido sea más fácil de encontrar y compartir.
+
 ## Qué hace cada parte del proyecto
 
 - `site/index.html`
