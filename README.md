@@ -15,9 +15,9 @@ Guía práctica sobre los niveles de madurez tecnológica (TRL), construida como
 - Navegación superior sticky con enlaces a cada sección.
 - Mini pager `Anterior / Siguiente` para avanzar entre temas.
 - Estética y diseño:
-  - estilo moderno con gradientes suaves y bordes redondeados.
-  - paleta contrastada para mejorar legibilidad.
-  - disposición clara y jerarquía visual en cada sección.
+  - estilo moderno con gradientes suaves, tarjetas elevadas y bordes redondeados.
+  - paleta contrastada y tipografía refinada para mayor legibilidad.
+  - layout fluido, jerarquía visual clara y elementos de navegación más pulidos.
 - Accesibilidad mejorada:
   - enlace de salto `Saltar al contenido`
   - foco visible y teclado soportado
